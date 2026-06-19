@@ -8,13 +8,13 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "types": ["vite/client"],
     "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
+    "jsxImportSource": "react",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "composite": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
-  "references": [{ "path": "./tsconfig.client.json" }]
+  "include": ["src/client/**/*.ts", "src/client/**/*.tsx"]
 }

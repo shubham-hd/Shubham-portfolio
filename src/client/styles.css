@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   PREMIUM DEVELOPER PORTFOLIO — global styles
+   ========================================================= */
+
+:root {
+  --ink: #0a0a0a;
+  --ink-soft: #111111;
+  --ink-line: #1f1f1f;
+  --paper: #f5f5f5;
+  --accent: #e8ff00;
+  --accent-glow: rgba(232, 255, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  background: var(--ink);
+  color: var(--paper);
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--ink);
+  color: var(--paper);
+  overflow-x: hidden;
+  cursor: none; /* custom cursor takes over on desktop */
+}
+
+@media (pointer: coarse) {
+  body { cursor: auto; }
+  .custom-cursor { display: none !important; }
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+/* Scrollbar (hidden, Lenis drives scroll) */
+::-webkit-scrollbar { width: 0; height: 0; }
+
+/* =========================================================
+   TYPOGRAPHY UTILS
+   ========================================================= */
+
+.font-display {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.font-serif-italic {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* =========================================================
+   CUSTOM CURSOR
+   ========================================================= */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              height 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+              border-color 0.3s ease,
+              background 0.3s ease;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+
+.cursor-ring.is-hovering {
+  width: 70px;
+  height: 70px;
+  border-color: rgba(232, 255, 0, 0.8);
+  background: rgba(232, 255, 0, 0.05);
+}
+
+.cursor-ring.is-clicking {
+  width: 30px;
+  height: 30px;
+}
+
+.cursor-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.cursor-ring.is-hovering .cursor-label { opacity: 1; }
+
+/* =========================================================
+   NOISE / GRAIN OVERLAY
+   ========================================================= */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9000;
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* =========================================================
+   PRELOADER
+   ========================================================= */
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--ink);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* =========================================================
+   SECTION / LAYOUT HELPERS
+   ========================================================= */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--ink-line), transparent);
+}
+
+.gradient-text {
+  background: linear-gradient(180deg, #fff 0%, #888 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(135deg, var(--accent) 0%, #fff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =========================================================
+   PROJECT CARD — 3D HOVER
+   ========================================================= */
+.tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tilt-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tilt-card-shine {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.15), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.tilt-card:hover .tilt-card-shine { opacity: 1; }
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  animation: marquee 30s linear infinite;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   SPLIT TEXT — line/word reveal masks
+   ========================================================= */
+.split-line {
+  display: block;
+  overflow: hidden;
+}
+
+.split-line > span {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.split-word > span {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+/* =========================================================
+   MAGNETIC BUTTON
+   ========================================================= */
+.magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 2.5rem;
+  background: var(--accent);
+  color: var(--ink);
+  border-radius: 999px;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  transition: background 0.3s ease;
+  will-change: transform;
+}
+
+.magnetic-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  border-radius: inherit;
+}
+
+.magnetic-btn:hover::before {
+  transform: translateY(0%);
+}
+
+.magnetic-btn > span {
+  position: relative;
+  z-index: 1;
+}
+
+.magnetic-btn--outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.magnetic-btn--outline:hover {
+  color: var(--ink);
+}
+
+.magnetic-btn--outline::before {
+  background: var(--accent);
+}
+
+/* =========================================================
+   HORIZONTAL SCROLL TRACK
+   ========================================================= */
+.h-scroll-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.h-scroll-track {
+  display: flex;
+  height: 100%;
+  will-change: transform;
+}
+
+.h-scroll-panel {
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4vw;
+}
+
+/* =========================================================
+   PAGE TRANSITION
+   ========================================================= */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: var(--ink);
+  z-index: 9500;
+  transform: translateY(100%);
+  pointer-events: none;
+}
+
+/* =========================================================
+   REVEAL UTILITIES
+   ========================================================= */
+.reveal-mask {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.reveal-mask > * {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   MISC
+   ========================================================= */
+.glow-accent {
+  box-shadow: 0 0 60px -10px var(--accent-glow);
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+img { display: block; max-width: 100%; }
+
+a, button {
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  a, button { cursor: pointer; }
+}
