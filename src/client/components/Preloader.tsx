@@ -13,10 +13,17 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
   useEffect(() => {
     const obj = { val: 0 }
+    let exitTween: gsap.core.Tween | null = null
+
     const tl = gsap.timeline({
       onComplete: () => {
-        // exit animation
-        gsap.to(rootRef.current, {
+        // exit animation — guard against unmounted ref (React 19 StrictMode double-mount)
+        if (!rootRef.current) {
+          setDone(true)
+          onComplete()
+          return
+        }
+        exitTween = gsap.to(rootRef.current, {
           yPercent: -100,
           duration: 1.1,
           ease: 'expo.inOut',
@@ -41,6 +48,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
     return () => {
       tl.kill()
+      exitTween?.kill()
     }
   }, [onComplete])
 

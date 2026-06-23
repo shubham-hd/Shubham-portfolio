@@ -398,3 +398,34 @@ a, button {
 @media (pointer: coarse) {
   a, button { cursor: pointer; }
 }
+
+/* =========================================================
+   REDUCED MOTION — respect user preference
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+
+  .noise-overlay {
+    display: none;
+  }
+
+  /* Disable custom cursor entirely when motion is reduced */
+  .custom-cursor,
+  .cursor-ring {
+    display: none !important;
+  }
+
+  body { cursor: auto !important; }
+  a, button { cursor: pointer !important; }
+}
