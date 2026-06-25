@@ -1,4 +1,4 @@
-# Kael Vance — Premium Creative Developer Portfolio
+# Shubham Sharma — Premium Creative Developer Portfolio
 
 A cinematic, dark-themed creative developer portfolio inspired by jakebogan.com. Built as a high-performance edge-rendered SPA with React, GSAP, Lenis smooth scrolling and Framer Motion.
 
@@ -6,7 +6,7 @@ A cinematic, dark-themed creative developer portfolio inspired by jakebogan.com.
 
 - **Name**: Premium Creative Developer Portfolio
 - **Goal**: Demonstrate a SaaS-level, cinematic personal-brand site with oversized typography, scroll storytelling and a custom motion system.
-- **Persona**: *Kael Vance* — fictional independent design engineer (Brooklyn → Worldwide).
+- **Persona**: *Shubham Sharma* — independent design engineer (India → Worldwide).
 
 ## Currently Completed Features
 
@@ -93,7 +93,7 @@ webapp/
 3. Scroll naturally — Lenis provides smooth inertia. The first time you scroll past the **About** manifesto, words fade up from grey to white as a scrub.
 4. The **Selected Work** section pins to the viewport while six project case studies scroll horizontally. The progress bar at the bottom tracks position. Hover any card for a 3D parallax tilt + shine.
 5. **How I Work** has four cards with `rotateX/Y` perspective hover and a process timeline below.
-6. **Get in touch** has magnetic buttons that pull toward the cursor. Live EST clock updates every 30s.
+6. **Get in touch** has magnetic buttons that pull toward the cursor. Live IST clock updates every 30s.
 7. On mobile, the cursor is hidden, layout collapses to a single column, and a slide-out drawer handles navigation.
 
 ## Deployment
@@ -156,4 +156,4 @@ pm2 delete webapp
 
 ---
 
-© 2026 Kael Vance Studio · Crafted with cinema in mind.
+© 2026 Shubham Sharma Studio · Crafted with cinema in mind.

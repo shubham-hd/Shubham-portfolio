@@ -29,7 +29,7 @@ export default function Footer() {
     return () => ctx.revert()
   }, [])
 
-  const word = 'KAEL · VANCE'.split('')
+  const word = 'SHUBHAM · SHARMA'.split('')
 
   return (
     <footer ref={ref} className="relative bg-ink border-t border-white/5 overflow-hidden">
@@ -97,7 +97,7 @@ export default function Footer() {
 
         {/* Mega wordmark */}
         <div className="foot-mega relative select-none">
-          <div className="font-display text-[18vw] leading-[0.85] tracking-tightest text-white whitespace-nowrap overflow-hidden">
+          <div className="font-display text-[13.5vw] leading-[0.85] tracking-tightest text-white whitespace-nowrap overflow-hidden">
             {word.map((c, i) => (
               <span key={i} className="inline-block overflow-hidden">
                 <span className="letter inline-block">
@@ -118,8 +118,8 @@ export default function Footer() {
             All systems nominal
           </div>
           <div className="flex items-center gap-6">
-            <span>© 2026 Kael Vance Studio</span>
-            <span className="hidden md:inline">Brooklyn → Worldwide</span>
+            <span>© 2026 Shubham Sharma Studio</span>
+            <span className="hidden md:inline">India → Worldwide</span>
             <a href="#" data-cursor="Open" className="hover:text-white transition-colors">Colophon</a>
           </div>
         </div>

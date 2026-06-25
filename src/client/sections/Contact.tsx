@@ -7,24 +7,17 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function Contact() {
   const ref = useRef<HTMLElement>(null)
-  const [time, setTime] = useState(() =>
+  // Live IST clock — Indian Standard Time (UTC+05:30)
+  const formatIST = () =>
     new Date().toLocaleTimeString('en-US', {
       hour: '2-digit',
       minute: '2-digit',
-      timeZone: 'America/New_York'
+      timeZone: 'Asia/Kolkata'
     })
-  )
+  const [time, setTime] = useState(formatIST)
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setTime(
-        new Date().toLocaleTimeString('en-US', {
-          hour: '2-digit',
-          minute: '2-digit',
-          timeZone: 'America/New_York'
-        })
-      )
-    }, 30000)
+    const id = setInterval(() => setTime(formatIST()), 30000)
     return () => clearInterval(id)
   }, [])
 
@@ -101,10 +94,10 @@ export default function Contact() {
 
             <div className="cta-meta mt-10 flex flex-wrap items-center gap-4">
               <MagneticButton
-                href="mailto:hello@kaelvance.com"
+                href="mailto:hello@shubhamsharma.dev"
                 cursorLabel="Send email"
               >
-                <span>hello@kaelvance.com</span>
+                <span>hello@shubhamsharma.dev</span>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -125,7 +118,7 @@ export default function Contact() {
                 Local time
               </div>
               <div className="font-display text-3xl text-white">
-                {time} <span className="text-ink-400 text-base">EST</span>
+                {time} <span className="text-ink-400 text-base">IST</span>
               </div>
             </div>
 
@@ -146,10 +139,10 @@ export default function Contact() {
                 Find me
               </div>
               {[
-                { l: 'Twitter / X', h: 'https://twitter.com', v: '@kaelvance' },
-                { l: 'Read.cv', h: 'https://read.cv', v: '/kaelvance' },
-                { l: 'GitHub', h: 'https://github.com', v: '/kaelvance' },
-                { l: 'Are.na', h: 'https://are.na', v: '/kael-vance' }
+                { l: 'Twitter / X', h: 'https://twitter.com/shubhamsharma', v: '@shubhamsharma' },
+                { l: 'Read.cv', h: 'https://read.cv/shubhamsharma', v: '/shubhamsharma' },
+                { l: 'GitHub', h: 'https://github.com/shubham-hd', v: '/shubham-hd' },
+                { l: 'Are.na', h: 'https://are.na', v: '/shubham-sharma' }
               ].map((s) => (
                 <a
                   key={s.l}

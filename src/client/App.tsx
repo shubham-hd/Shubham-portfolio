@@ -35,7 +35,7 @@ export default function App() {
       <main className="relative">
         <Hero />
 
-        <Marquee items={['Design Engineer', 'Motion Director', 'Independent Studio', 'Brooklyn → Worldwide']} />
+        <Marquee items={['Design Engineer', 'Motion Director', 'Independent Studio', 'India → Worldwide']} />
 
         <About />
 

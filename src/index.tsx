@@ -2,10 +2,10 @@ import { Hono } from 'hono'
 
 const app = new Hono()
 
-const TITLE = 'Kael Vance — Independent Design Engineer'
+const TITLE = 'Shubham Sharma — Independent Design Engineer'
 const DESC =
-  'Kael Vance is an independent design engineer crafting cinematic interfaces, motion systems and zero-to-one product experiences for ambitious teams.'
-const URL = 'https://kaelvance.studio'
+  'Shubham Sharma is an independent design engineer crafting cinematic interfaces, motion systems and zero-to-one product experiences for ambitious teams.'
+const URL = 'https://shubhamsharma.dev'
 const OG = '/static/og.png'
 
 app.get('/', (c) => {
@@ -20,7 +20,7 @@ app.get('/', (c) => {
 
     <title>${TITLE}</title>
     <meta name="description" content="${DESC}" />
-    <meta name="author" content="Kael Vance" />
+    <meta name="author" content="Shubham Sharma" />
     <meta name="keywords" content="design engineer, creative developer, motion design, portfolio, GSAP, Framer Motion, brand engineer, web animation, product design" />
 
     <!-- Open Graph -->
@@ -36,7 +36,7 @@ app.get('/', (c) => {
     <meta name="twitter:title" content="${TITLE}" />
     <meta name="twitter:description" content="${DESC}" />
     <meta name="twitter:image" content="${OG}" />
-    <meta name="twitter:creator" content="@kaelvance" />
+    <meta name="twitter:creator" content="@shubhamsharma" />
 
     <link rel="canonical" href="${URL}" />
     <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
@@ -53,14 +53,14 @@ app.get('/', (c) => {
 ${JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: 'Kael Vance',
+  name: 'Shubham Sharma',
   url: URL,
   jobTitle: 'Independent Design Engineer',
-  worksFor: { '@type': 'Organization', name: 'Kael Vance Studio' },
+  worksFor: { '@type': 'Organization', name: 'Shubham Sharma Studio' },
   sameAs: [
-    'https://twitter.com/kaelvance',
-    'https://github.com/kaelvance',
-    'https://read.cv/kaelvance'
+    'https://twitter.com/shubhamsharma',
+    'https://github.com/shubham-hd',
+    'https://read.cv/shubhamsharma'
   ],
   description: DESC
 })}
@@ -70,10 +70,10 @@ ${JSON.stringify({
     <div id="app-root"></div>
     <noscript>
       <div style="padding: 4rem; color: white; font-family: system-ui; max-width: 60ch;">
-        <h1 style="font-size: 3rem; margin-bottom: 1rem;">Kael Vance</h1>
+        <h1 style="font-size: 3rem; margin-bottom: 1rem;">Shubham Sharma</h1>
         <p>Independent design engineer. This site uses JavaScript for its cinematic
         animations — please enable it to see the full experience.</p>
-        <p>Get in touch: <a href="mailto:hello@kaelvance.com" style="color: #e8ff00;">hello@kaelvance.com</a></p>
+        <p>Get in touch: <a href="mailto:hello@shubhamsharma.dev" style="color: #e8ff00;">hello@shubhamsharma.dev</a></p>
       </div>
     </noscript>
     <script type="module" src="/static/client.js"></script>

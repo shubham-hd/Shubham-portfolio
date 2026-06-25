@@ -86,7 +86,7 @@ export default function Hero() {
             Independent design engineer
           </span>
           <span className="hidden md:inline opacity-50">/</span>
-          <span className="hidden md:inline">Brooklyn → Worldwide</span>
+          <span className="hidden md:inline">India → Worldwide</span>
         </div>
 
         {/* Massive title */}
@@ -108,7 +108,7 @@ export default function Hero() {
         <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-5">
             <p className="hero-meta opacity-0 translate-y-4 text-lg md:text-xl text-ink-200 max-w-lg leading-snug">
-              I'm <span className="text-white font-medium">Kael Vance</span> — an independent
+              I'm <span className="text-white font-medium">Shubham Sharma</span> — an independent
               design engineer crafting cinematic interfaces, motion systems and zero-to-one
               product experiences for ambitious teams.
             </p>

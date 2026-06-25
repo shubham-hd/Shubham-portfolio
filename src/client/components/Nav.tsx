@@ -50,7 +50,7 @@ export default function Nav() {
               <span className="relative h-2.5 w-2.5 rounded-full bg-ink" />
             </span>
             <span className="font-display text-base tracking-tight">
-              Kael<span className="text-accent">.</span>Vance
+              Shubham<span className="text-accent">.</span>Sharma
             </span>
           </a>
 
